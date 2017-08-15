@@ -11,10 +11,10 @@ categories: [useful, golang]
 На сервере есть структура для хранения информации о пользователе
 {% highlight go %}
 type User struct {
-	ID           int `json:"id"`,
-	SecurityKey  string `json:"id"`
-	Name         string `json:"name"`,
-	Age          int `json:"age"`
+    ID           int `json:"id"`,
+    SecurityKey  string `json:"id"`
+    Name         string `json:"name"`,
+    Age          int `json:"age"`
 }
 {% endhighlight %}
 сервер может обрабатывать два вида запросов:
@@ -24,29 +24,28 @@ type User struct {
 Нужно изменить модель данных и запросы так, что бы данные по прежнему хранились в объекта User, но на POST клиент не мог изменить ID и SecurityKey. 
 
 # Неправильное решение
-Вот так скорее всего поступил бы я и многие невнимательно прочитавшие "Effective Go" новички:<br/>
 Принять json, декодировать его в объект User и перед окончательной записью в базу проверить, что ID и SecurityKey не изменились, либо записать данные только из полей Name и Age.
 
 # Как правильно
 Структуру User можно разбить на две структуры для приватных полей(не могут быть изменены клиентом):<br/>
 {% highlight go %}
 type UserPrivate struct {
-	ID          int `json:"id"`
+    ID          int `json:"id"`
     SecurityKey string `json:"id"`
 }
 {% endhighlight %}
 И публичные полей(могут меняться клиентом):<br/>
 {% highlight go %}
 type UserPublic struct {
-	Name string `json:"name"`,
-	Age  int `json:"age"`
+    Name string `json:"name"`,
+    Age  int `json:"age"`
 }
 {% endhighlight %}
 А саму структуру User скомпоновать из структур выше:<br/>
 {% highlight go %}
 type User struct {
-	UserPrivate
-	UserPublic
+    UserPrivate
+    UserPublic
 }
 {% endhighlight %}
 Теперь на GET /user/id можно кодировать в json как и раньше весь тип User, а на POST json раскодировать в объект типа UserPublic:<br/>
