@@ -7,6 +7,6 @@
  - slug: books
    name: книги
  - slug: python
-   name: python
+   name: Python
  - slug: golang
-   name: golang
+   name: Go
