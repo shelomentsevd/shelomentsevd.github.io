@@ -1,0 +1,10 @@
+ - slug: useful
+   name: полезное
+ - slug: cpp
+   name: C++
+ - slug: translations
+   name: переводы
+ - slug: books
+   name: книги
+ - slug: python
+   name: python
