@@ -48,7 +48,7 @@ type User struct {
     UserPublic
 }
 {% endhighlight %}
-Теперь на GET /user/id можно кодировать в json как и раньше весь тип User, а на POST json раскодировать в объект типа UserPublic:<br/>
+Теперь на GET /user/id можно кодировать в json как и раньше весь тип User, а на POST json раскодировать в объект UserPublic:<br/>
 {% highlight go %}
 // GET
 user := User{UserPrivate{10}, UserPublic{"Ivan", 24}}
