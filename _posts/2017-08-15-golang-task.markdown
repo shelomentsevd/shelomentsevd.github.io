@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Придумал неплохую задачку на Go для собеседования"
+title: "Задача по Go для собеседования"
 subtitle: ""
 date: 2017-08-15 11:00:00
 categories: [useful, golang]
