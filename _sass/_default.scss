@@ -17,7 +17,6 @@ a {
 
 p {
     font-size: 20px;
-    color: $iron;
     line-height: 32px;
 }
 
@@ -303,4 +302,12 @@ strong {
     .post-title__subtitle {
         font-size: 18px;
     }
+}
+
+.pagination {
+    font-size: 14px;
+    padding: 0px;
+    text-align: center;
+    position: relative;
+
 }

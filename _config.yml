@@ -1,5 +1,6 @@
 # Site settings
 title: ShelomentsevD
+gems: [jekyll-paginate]
 description: >
   Shelomentsev Dmitriy personal blog.
   Личный блог Шеломенцева Дмитрия.
@@ -16,3 +17,5 @@ google_analytics: 'UA-73125530-1'
 
 # Build settings
 markdown: kramdown
+paginate: 5
+paginate_path: "/page:num"
